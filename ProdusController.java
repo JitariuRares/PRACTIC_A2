@@ -34,3 +34,39 @@ class ProdusController {
         }
     }
 }
+
+class PacientController {
+    private List<Pacient> pacienti = new ArrayList<>();
+    private int nextId = 1;
+
+
+
+    public void editeazaPacient(int id, String numeNou, int varstaNou) {
+        for (Pacient p : pacienti) {
+            if (p.getId() == id) {
+                p.setNume(numeNou);
+                p.setVarsta(varstaNou);
+                return;
+            }
+        }
+        System.out.println("Pacient inexistent!");
+    }
+
+    public void stergePacient(int id) {
+        pacienti.removeIf(p -> p.getId() == id);
+    }
+
+    public void afiseazaPacient() {
+        if (pacienti.isEmpty()) {
+            System.out.println("Nu exista pacienti.");
+        } else {
+            for (Pacient p : pacienti) {
+                System.out.println(p);
+            }
+        }
+    }
+
+    public void adaugaPacient(Pacient pacient) {
+        pacienti.add(pacient);
+    }
+}
