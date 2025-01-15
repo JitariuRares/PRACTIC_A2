@@ -69,4 +69,17 @@ class PacientController {
     public void adaugaPacient(Pacient pacient) {
         pacienti.add(pacient);
     }
+
+    public void filtreazaPacientDupaNume(String nume) {
+        boolean gasit = false;
+        for (Pacient p : pacienti) {
+            if (p.getNume().equalsIgnoreCase(nume)) {
+                System.out.println(p);
+                gasit = true;
+            }
+        }
+        if (!gasit) {
+            System.out.println("Nu exista pacienti cu acest nume.");
+        }
+    }
 }

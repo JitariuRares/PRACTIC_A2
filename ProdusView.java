@@ -22,7 +22,8 @@ class ProdusView {
                 case 6 -> editeazaPacient();
                 case 7 -> stergePacient();
                 case 8 -> pacientController.afiseazaPacient();
-                case 9 -> ruleaza = false;
+                case 9 -> filtreazaPacientDupaNume();
+                case 10 -> ruleaza = false;
                 default -> System.out.println("Optiune invalida!");
             }
         }
@@ -44,7 +45,8 @@ class ProdusView {
         System.out.println("6. Editeaza pacient ");
         System.out.println("7. Sterge pacient: ");
         System.out.println("8. Afiseaza pacienti");
-        System.out.println("9. Iesire");
+        System.out.println("9. Filtreaza dupa nume: ");
+        System.out.println("10. Iesire");
         System.out.print("Alege o optiune: ");
     }
 
@@ -89,5 +91,11 @@ class ProdusView {
         System.out.println("Varsta: ");
         int varsta = scanner.nextInt();
         pacientController.adaugaPacient(new Pacient(id, nume, varsta));
+    }
+
+    private void filtreazaPacientDupaNume() {
+        System.out.print("Introdu numele: ");
+        String nume = scanner.nextLine();
+        pacientController.filtreazaPacientDupaNume(nume);
     }
 }
